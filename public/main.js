@@ -29,6 +29,10 @@ var myRouter = new VueRouter({
 								console.log(this.registerForm.password)
 								// we don't actually refer to the event object inside of this function, so there's no need to name the event object
 								$.post('/register', this.registerForm, function(dataFromServer){
+									if(dataFromServer.success) {
+										// this.router.push('/search')
+										this.$router.push({ path: `/search` })
+									}
 									console.log(dataFromServer)
 								})
 							},
